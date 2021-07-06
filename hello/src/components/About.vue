@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
-
-    <button>跳到首页</button>
-    <button>跳到关于我的</button>
-    
+    <h2>关于我们</h2>
+    <div>{{name}}</div>
   </div>
 </template>
 

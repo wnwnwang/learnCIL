@@ -1,9 +1,7 @@
 <template>
   <div class="hello">
-
-    <button>跳到首页</button>
-    <button>跳到关于我的</button>
-    
+    <h2>我是首页</h2>
+    <div>{{name}}</div>
   </div>
 </template>
 
@@ -13,7 +11,7 @@ export default {
     return {
       name: "tom",
       age: 19
-    }
+    } 
   }
 }
 </script>
