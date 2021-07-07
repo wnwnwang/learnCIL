@@ -7,6 +7,9 @@
 
 <script>
 export default {
+  created() {
+    document.title="关于"
+  },
   data() {
     return {
       name: "tom",

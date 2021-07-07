@@ -1,7 +1,5 @@
 
 import VueRouter from 'vue-router'
-import Home from '../components/Home'
-import About from '../components/About'
 import Vue from 'vue'
 
 Vue.use(VueRouter)
@@ -13,11 +11,19 @@ const routes = [
     },
     {
         path:'/home',
-        component:Home
+        component:() => import('../components/Home')
     },
     {
         path:'/about',
-        component:About
+        component:() => import('../components/About')
+    },
+    {
+        path:'/user/:userid',
+        component:() => import('../components/User')
+    },
+    {
+        path:'/login',
+        component:() => import('../components/Login')
     }
 ]
 
@@ -25,5 +31,7 @@ const router = new VueRouter({
     mode:'history',
     routes
 })
+
+router.beforeEach()
 
 export default router

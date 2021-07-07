@@ -3,7 +3,9 @@
 
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
-    <router-view></router-view>
+    <router-link :to="'/user/' + userid">我的</router-link>
+    <router-link :to="{path:'/login',query:{name:'wn',age:18}}">登录</router-link>
+    <router-view/>
     
   </div>
 </template>
@@ -14,12 +16,13 @@ export default {
   data() {
     return {
       name: "tom",
-      age: 19
+      age: 19,
+      userid:'lisi'
     }
   },
 
   methods: {
-
+   
   }
   
 }
