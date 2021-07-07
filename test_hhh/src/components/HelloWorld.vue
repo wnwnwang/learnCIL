@@ -1,15 +1,9 @@
-
-
 <template>
   <div class="hello">
 
-    <router-link to="/home" tag="button">首页</router-link>
+    <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
     <router-view></router-view>
-
-  
-
-
     
   </div>
 </template>
@@ -33,5 +27,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .router-link-active {
+      color: red;
+    }
 
 </style>

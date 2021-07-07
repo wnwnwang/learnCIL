@@ -1,14 +1,15 @@
 
-import VueRouter from 'vue-router'
-import Vue from 'vue'
-
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../components/Home'
 import About from '../components/About'
 
-Vue.use(VueRouter)
-
-const router = new VueRouter({
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
     routes:[
+        {
+            path:'',
+            redirect:'/home'
+        },
         {
             path:'/home',
             component:Home

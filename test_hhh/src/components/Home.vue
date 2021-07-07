@@ -1,33 +1,18 @@
-
-
 <template>
   <div class="hello">
-
-    <router-link to="/home" tag="button">首页</router-link>
-    <router-link to="/about">关于</router-link>
-    <router-view></router-view>
-
-  
-
-
-    
+    <h2>我是首页</h2>
+    <div>{{name}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  
   data() {
     return {
       name: "tom",
       age: 19
-    }
-  },
-
-  methods: {
-
+    } 
   }
-  
 }
 </script>
 
