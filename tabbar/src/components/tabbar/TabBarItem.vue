@@ -2,8 +2,7 @@
     <div class="tab-bar-item" @click="clickItem">
       <img v-if="isActive" :src="require('@/assets/img/tabbar/' + selectedSrc)"/>
       <img v-else :src="require('@/assets/img/tabbar/' + unselectedSrc)"/>
-      <div class="selected-text" v-if="isActive">{{text}}</div>
-      <div class="unselected-text" v-else>{{text}}</div>
+      <div :style="textStyle">{{text}}</div>
     </div>
 </template>
 
@@ -19,12 +18,20 @@ export default {
       },
       selectedSrc:String,
       unselectedSrc:String,
-      text:String
+      text:String,
+      activeColor: {
+          type:String,
+          default:'red'
+      }
   },
 
   computed: {
       isActive() {
         return this.isCurrentPage();
+      },
+      
+      textStyle() {
+          return this.isActive ?{color: this.activeColor} : {color: 'black'}
       }
 
   },
@@ -59,14 +66,6 @@ export default {
     .tab-bar-item img {
         width: 24px;
         height: 24px;
-    }
-
-    .selected-text {
-        color: red;
-    }
-
-    .unselected-text {
-        color: black;
     }
 
 
