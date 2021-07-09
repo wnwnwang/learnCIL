@@ -9,8 +9,6 @@
 
 <script>
 
-import TabBarManager from './TabBarManager'
-
 
 export default {
   name: 'TabBarItem',
@@ -21,49 +19,29 @@ export default {
       },
       selectedSrc:String,
       unselectedSrc:String,
-      text:String,
-      firstShow: {
-          type: Boolean,
-          default: false
-      }
+      text:String
   },
 
-  data() {
-      return {
-          isActive: false,
-          listener: (link) => {
-              if(this.link == link) {
-                  this.isActive = true
-              } else {
-                  this.isActive = false
-              }
-          }
+  computed: {
+      isActive() {
+        return this.isCurrentPage();
       }
-  },
 
-
-  
-  created: function() {
-      console.log('created link = ' + this.link)
-      let mgr = TabBarManager.getInstance()
-      mgr.registerListener(this.listener)
-      if(this.firstShow) {
-          mgr.setCurrentLink(this.link)
-      }
-  },
-
-  destroyed: function() {
-      console.log('destroyed link = ' + this.link)
-      TabBarManager.getInstance().unregisterListener(this.listener)
   },
   methods: {
       clickItem() {
-          let mgr = TabBarManager.getInstance()
-          if(mgr.currentLink == this.link) {
-              return
+         if(this.isCurrentPage()) {
+             return
+         }
+        this.$router.replace(this.link)
+      },
+
+      isCurrentPage() {
+          if(this.$route.path.indexOf(this.link) == -1) {
+              return false
+          } else {
+              return true
           }
-         mgr.setCurrentLink(this.link)
-         this.$router.replace(this.link)
       }
   }
 }
